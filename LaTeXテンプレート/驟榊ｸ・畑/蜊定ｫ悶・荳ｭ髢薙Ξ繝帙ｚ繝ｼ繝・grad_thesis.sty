@@ -1,0 +1,83 @@
+\ProvidesPackage{grad_thesis}
+\typeout{Document Style 'shuichi_kawano_grad_thesis' - environment}
+
+% 箇条書きの種類を増やす ----------
+\usepackage{enumitem}
+% 参考文献の参照方法を増やす ----------
+\usepackage{natbib}
+\bibpunct[:]{(}{)}{;}{a}{,}{,}
+
+%% 図表の設定 ----------
+% 図の挿入
+\usepackage[dvipdfmx]{graphicx,color}
+\usepackage{subcaption}
+
+% 図→Fig 表→Tableに
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Table}
+% テキスト，図，表の回転ができる
+\usepackage{lscape}
+% 図にテキストを回り込ませる環境
+\usepackage{wrapfig}
+% tikz
+\usepackage{tikz}
+
+%% documentclass: jarticleの調整 / 変更しない ----------
+% margin等の設定
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.3}
+\renewcommand{\arraystretch}{0.8}
+\setlength{\textheight}{23cm}
+\setlength{\textwidth}{15cm}
+\setlength{\oddsidemargin}{5mm}
+\setlength{\evensidemargin}{5mm}
+\setlength{\topmargin}{-5mm}
+\setlength{\footskip}{15mm}
+\setlength{\parindent}{4.5mm}
+
+
+%% 数学関連の設定 ----------
+% ams* : 数学記号などの拡張
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+
+% 数式環境で太字にできる
+\usepackage{bm}
+% argmax, argminの定義
+\newcommand{\argmax}{\mathop{\rm arg~max}\limits}
+\newcommand{\argmin}{\mathop{\rm arg~min}\limits}
+% 数式番号に節(section)番号を付加。amsmathのコマンド
+\numberwithin{equation}{section}
+
+%% PDFにしおりをつけられる
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+
+%% 疑似コードの設定　----------
+% option:[noend]; endを表示しない ex) end for -> 表示なし
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithm}
+% 擬似コードの Input,Outputを太字にする
+\makeatletter
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\makeatother
+
+
+%% 文章論理構造関連の設定 ----------
+%subsubsubsectionの追加,定義
+\setcounter{secnumdepth}{5}
+\makeatletter
+\newcommand{\subsubsubsection}{\@startsection{paragraph}{4}{\z@}%
+{1.5\baselineskip \@plus.5\dp0 \@minus.2\dp0}%
+{.5\baselineskip \@plus2.3\dp0}%
+{\reset@font\normalsize\bfseries}
+}
+\newcommand{\subsubsubsubsection}{\@startsection{subparagraph}{5}{\z@}%
+{1.5\baselineskip \@plus.5\dp0 \@minus.2\dp0}%
+{.5\baselineskip \@plus2.3\dp0}%
+{\reset@font\normalsize\itshape}
+}
+\makeatother
+\setcounter{tocdepth}{5}
+
+%% End of file `grad_thesis.sty'.

@@ -1,0 +1,47 @@
+\ProvidesPackage{proceeding_thesis}
+\typeout{Document Style 'shuichi_kawano_proceeding' - environment}
+
+% 箇条書きの種類を増やす ----------
+\usepackage{enumitem}
+% 参考文献の参照方法を増やす ----------
+\usepackage{natbib}
+\bibpunct[:]{(}{)}{;}{a}{,}{,}
+
+%% documentclass: jsarticleの調整 : proceedings用 / 変更しない
+\renewcommand{\baselinestretch}{0.9} %全体的に行の間隔を小さくする
+\usepackage[top=1cm,bottom=1.5cm,left=1.5cm,right=1.5cm,includefoot]{geometry}%上下左右の余白を指定．フッター領域は本文
+
+
+%% package : 変更しても良い
+%% 図表の設定 ----------
+% 図の挿入
+\usepackage[dvipdfmx]{graphicx,color}
+\usepackage{subcaption}
+
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Table}
+% テキスト，図，表の回転ができる
+\usepackage{lscape}
+% 図にテキストを回り込ませる環境
+\usepackage{wrapfig}
+% tikz
+\usepackage{tikz}
+
+
+%% 数学関連の設定 ----------
+% ams* : 数学記号などの拡張
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+
+% 数式環境で太字にできる
+\usepackage{bm}
+% argmax, argminの定義
+\newcommand{\argmax}{\mathop{\rm arg~max}\limits}
+\newcommand{\argmin}{\mathop{\rm arg~min}\limits}
+% 数式番号に節(section)番号を付加。amsmathのコマンド
+\numberwithin{equation}{section}
+
+%% PDFにしおりをつけられる
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+
+%% End of file `proceeding_thesis.sty'.
